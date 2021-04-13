@@ -3,7 +3,7 @@ cookbook - a recipe sharing app
 
 
 Collaborators:
- - Ramy Fekry
+ - Ramy Fekry: @ramy1951
  - Himanshu Garg: HimanshuGarg701
  - Jainam Shah
 
