@@ -4,7 +4,7 @@ cookbook - a recipe sharing app
 
 Collaborators:
  - Ramy Fekry
- - Himanshu Garg
+ - Himanshu Garg: HimanshuGarg701
  - Jainam Shah
 
 Proposal:
