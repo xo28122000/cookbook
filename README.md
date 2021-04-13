@@ -3,9 +3,9 @@ cookbook - a recipe sharing app
 
 
 Collaborators:
- - Ramy Fekry: @ramy1951
+ - Ramy Fekry: ramy1951
  - Himanshu Garg: HimanshuGarg701
- - Jainam Shah
+ - Jainam Shah: xo28122000
 
 Proposal:
 Must have features:
