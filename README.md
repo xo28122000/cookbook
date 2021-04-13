@@ -14,3 +14,12 @@ Must have features:
  - Recipes data shall be retrieved from Firebase.
  - Recipes shall have a user attached to it.
 
+
+Nice to have features:
+ - Recipe shall have an image.
+ - Users shall be able to filter recipes by categories.
+ - Users shall be able to filter recipes based on title.
+ - Users shall be able to give comments on a recipe.
+ - Users shall be able to give star ratings on a recipe.
+ - Users shall be able to enter ingredients and get a list of recipes that could be made using that list of ingredients.
+ - Users shall bookmark recipes.
