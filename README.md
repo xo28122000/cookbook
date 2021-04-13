@@ -29,3 +29,6 @@ Nice to have features:
  - Users shall be able to give star ratings on a recipe.
  - Users shall be able to enter ingredients and get a list of recipes that could be made using that list of ingredients.
  - Users shall bookmark recipes.
+
+# Wire Frame: 
+FIGMA: https://www.figma.com/file/kBBLdxyevtD8GrotKB85rk/CSC_690_cookbook?node-id=0%3A1
