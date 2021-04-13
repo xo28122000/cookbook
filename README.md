@@ -7,7 +7,9 @@ Collaborators:
  - Himanshu Garg: HimanshuGarg701
  - Jainam Shah: xo28122000
 
-Proposal:
+# Proposal:
+
+
 Must have features:
  - Recipes shall have a title, description, directions, preparation time, ingredients, categories.
  - Recipes data shall be uploaded to the Firebase.
