@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		0927D9CA2630906B0055246C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927D9C92630906A0055246C /* AppDelegate.swift */; };
 		0927D9CC2630906B0055246C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927D9CB2630906B0055246C /* SceneDelegate.swift */; };
-		0927D9CE2630906B0055246C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927D9CD2630906B0055246C /* ViewController.swift */; };
+		0927D9CE2630906B0055246C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927D9CD2630906B0055246C /* LoginViewController.swift */; };
 		0927D9D12630906B0055246C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0927D9CF2630906B0055246C /* Main.storyboard */; };
 		0927D9D42630906B0055246C /* CookBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0927D9D22630906B0055246C /* CookBook.xcdatamodeld */; };
 		0927D9D6263090710055246C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0927D9D5263090710055246C /* Assets.xcassets */; };
 		0927D9D9263090710055246C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0927D9D7263090710055246C /* LaunchScreen.storyboard */; };
 		0927D9E4263090720055246C /* CookBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927D9E3263090720055246C /* CookBookTests.swift */; };
 		0927D9EF263090720055246C /* CookBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927D9EE263090720055246C /* CookBookUITests.swift */; };
+		0927DA0326309E280055246C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927DA0226309E280055246C /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 		0927D9C62630906A0055246C /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0927D9C92630906A0055246C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0927D9CB2630906B0055246C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0927D9CD2630906B0055246C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0927D9CD2630906B0055246C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0927D9D02630906B0055246C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0927D9D32630906B0055246C /* CookBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookBook.xcdatamodel; sourceTree = "<group>"; };
 		0927D9D5263090710055246C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		0927D9EA263090720055246C /* CookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0927D9EE263090720055246C /* CookBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookBookUITests.swift; sourceTree = "<group>"; };
 		0927D9F0263090720055246C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0927DA0226309E280055246C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 			children = (
 				0927D9C92630906A0055246C /* AppDelegate.swift */,
 				0927D9CB2630906B0055246C /* SceneDelegate.swift */,
-				0927D9CD2630906B0055246C /* ViewController.swift */,
+				0927D9CD2630906B0055246C /* LoginViewController.swift */,
+				0927DA0226309E280055246C /* HomeViewController.swift */,
 				0927D9CF2630906B0055246C /* Main.storyboard */,
 				0927D9D5263090710055246C /* Assets.xcassets */,
 				0927D9D7263090710055246C /* LaunchScreen.storyboard */,
@@ -261,8 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0927DA0326309E280055246C /* HomeViewController.swift in Sources */,
 				0927D9D42630906B0055246C /* CookBook.xcdatamodeld in Sources */,
-				0927D9CE2630906B0055246C /* ViewController.swift in Sources */,
+				0927D9CE2630906B0055246C /* LoginViewController.swift in Sources */,
 				0927D9CA2630906B0055246C /* AppDelegate.swift in Sources */,
 				0927D9CC2630906B0055246C /* SceneDelegate.swift in Sources */,
 			);
