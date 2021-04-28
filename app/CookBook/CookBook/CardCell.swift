@@ -26,16 +26,21 @@ class CardCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
 
     func configure(name: String, description: String, imgData: String){
-//        guard let imageData = Data(base64Encoded: imgData)
-//        else{
-//            print("cannot convert")
-//            return
-//        }
+        guard let imageData = Data(base64Encoded: imageStockString, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)
+        else{
+            print("cannot convert")
+            return
+        }
+//        let imageData = Data.init(base64Encoded: imageStockString, options: .init(rawValue: 0))
 //        print(imageData)
+        
+//        let decodedimage:UIImage = UIImage(data: imageData as Data)!
         
         nameLabel.text = name
         descriptionLabel.text = description
-        imgView.image = UIImage(named: "icon1")
+//        imgView.image = UIImage(named: "icon1")
+        imgView.image = UIImage(data: imageData)
+//        print(imgView.image?.jpegData(compressionQuality: 1.0)?.base64EncodedString() ?? "")
         
         cardView.layer.shadowColor = UIColor.gray.cgColor
 //        cardView.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
