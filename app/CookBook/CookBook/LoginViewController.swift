@@ -15,7 +15,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         continueAsExistingUserButton.isHidden = true;
-       
     }
 
 
