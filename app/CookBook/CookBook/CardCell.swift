@@ -26,7 +26,7 @@ class CardCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
 
     func configure(name: String, description: String, imgData: String){
-        guard let imageData = Data(base64Encoded: imageStockString, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)
+        guard let imageData = Data(base64Encoded: imgData, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)
         else{
             print("cannot convert")
             return
