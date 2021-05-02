@@ -35,5 +35,16 @@ class LoginViewController: UIViewController {
     }
 
 
+    @IBAction func addUser(_ sender: Any) {
+        let newUser = User(context: self.context)
+        newUser.name = enterNameTextField.text
+        newUser.uid = UUID().uuidString
+        
+        do{
+            try self.context.save()
+        }catch{
+            
+        }
+    }
 }
 

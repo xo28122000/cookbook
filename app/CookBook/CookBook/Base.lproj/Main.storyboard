@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DuT-Co-bHU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DuT-Co-bHU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,6 +47,7 @@
                                 </constraints>
                                 <state key="normal" title="Continue"/>
                                 <connections>
+                                    <action selector="addUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y7U-Vw-wxi"/>
                                     <segue destination="ZRt-me-zcz" kind="show" id="1Mf-VW-432"/>
                                 </connections>
                             </button>
@@ -218,7 +219,6 @@
         <!--Add Recipe View Controller-->
         <scene sceneID="mcR-Ji-NMe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t6f-AK-Psq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="8L8-gd-MY4" customClass="AddRecipeViewController" customModule="CookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xG1-G4-55z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
@@ -624,6 +624,7 @@
                         <outlet property="titleTextField" destination="SIg-RY-IoT" id="1IE-11-Got"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t6f-AK-Psq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2424.6376811594205" y="1634.5982142857142"/>
         </scene>
