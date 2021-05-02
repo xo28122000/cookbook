@@ -17,10 +17,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // try to retrive user object from local core data
-        // if user continueAsExistingUserButton
-        // else enterNameTextField & continueAsNewUserButton
-        continueAsExistingUserButton.isHidden = true;
+        getUser()
+        if(self.users != nil && self.users!.count > 0){
+            continueAsNewUserButton.isHidden = true
+            enterNameTextField.isHidden = true
+        }else{
+            continueAsExistingUserButton.isHidden = true;
+        }
     }
     
     //Function to fetch the user from core data
@@ -28,6 +31,13 @@ class LoginViewController: UIViewController {
     func getUser(){
         do{
             self.users = try context.fetch(User.fetchRequest())
+            if(self.users != nil && self.users!.count > 0){
+                DispatchQueue.main.async {
+                    self.continueAsNewUserButton.setTitle("Continue As " + self.users![0].name!, for: .normal)
+                }
+                //continueAsNewUserButton.setTitle("Continue As " + self.users![0].name!, for: .normal)
+            }
+            //print(self.users![0].name)
         }
         catch{
             
