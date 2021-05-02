@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0265F0BB263E850900E7107D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265F0B9263E850900E7107D /* User+CoreDataProperties.swift */; };
+		0265F0BC263E850900E7107D /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265F0BA263E850900E7107D /* User+CoreDataClass.swift */; };
 		0780B878102ECF5B9D505C57 /* Pods_CookBook_CookBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4671B40FB56AC44E9CB741 /* Pods_CookBook_CookBookUITests.framework */; };
 		0927D9CA2630906B0055246C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927D9C92630906A0055246C /* AppDelegate.swift */; };
 		0927D9CC2630906B0055246C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927D9CB2630906B0055246C /* SceneDelegate.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0265F0B9263E850900E7107D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		0265F0BA263E850900E7107D /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		0927D9C62630906A0055246C /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0927D9C92630906A0055246C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0927D9CB2630906B0055246C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0265F0B8263E84EE00E7107D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0265F0BA263E850900E7107D /* User+CoreDataClass.swift */,
+				0265F0B9263E850900E7107D /* User+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0927D9BD2630906A0055246C = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 		0927D9C82630906A0055246C /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
+				0265F0B8263E84EE00E7107D /* Model */,
 				09BEE80226377165002E4CF3 /* CardCell.swift */,
 				09BEE7FD2637709E002E4CF3 /* testImageFile.swift */,
 				0927D9CD2630906B0055246C /* LoginViewController.swift */,
@@ -429,10 +443,12 @@
 				09BEE80326377165002E4CF3 /* CardCell.swift in Sources */,
 				0927DA0326309E280055246C /* HomeViewController.swift in Sources */,
 				0927D9D42630906B0055246C /* CookBook.xcdatamodeld in Sources */,
+				0265F0BC263E850900E7107D /* User+CoreDataClass.swift in Sources */,
 				0927D9CE2630906B0055246C /* LoginViewController.swift in Sources */,
 				0927D9CA2630906B0055246C /* AppDelegate.swift in Sources */,
 				0927D9CC2630906B0055246C /* SceneDelegate.swift in Sources */,
 				09BEE7FE2637709E002E4CF3 /* testImageFile.swift in Sources */,
+				0265F0BB263E850900E7107D /* User+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
