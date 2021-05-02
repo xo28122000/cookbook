@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
             if(self.users != nil && self.users!.count > 0){
                 DispatchQueue.main.async {
                     self.continueAsNewUserButton.setTitle("Continue As " + self.users![0].name!, for: .normal)
+                    print("Continue As " + self.users![0].name!)
                 }
                 //continueAsNewUserButton.setTitle("Continue As " + self.users![0].name!, for: .normal)
             }
