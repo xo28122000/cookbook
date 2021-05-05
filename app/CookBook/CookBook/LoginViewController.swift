@@ -24,6 +24,21 @@ class LoginViewController: UIViewController {
         }else{
             continueAsExistingUserButton.isHidden = true;
         }
+        /** TESTING**/
+        TESTING_RUN()
+    }
+    
+    func TESTING_RUN(){
+        let dbModel = dbModel()
+        let uid = "uid123"
+        dbModel?.setUserValue(uid: uid, username: "ramy1951")
+        let returnedUser = dbModel?.getUserBy(uid: uid)
+    
+        
+        print("returned User: \(String(describing: returnedUser))")
+        
+        let allUsers: Optional = dbModel?.getAllUsers()
+        print("all Users: ", allUsers as Any)
     }
     
     //Function to fetch the user from core data
