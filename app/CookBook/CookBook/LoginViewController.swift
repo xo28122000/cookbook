@@ -18,8 +18,6 @@ class LoginViewController: UIViewController {
     //continueAsNewUserButton.setTitle("Continue As " + "xxxx", for: .normal)
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
         getUser()
         if(self.users != nil && self.users!.count > 0){
             continueAsNewUserButton.isHidden = true
