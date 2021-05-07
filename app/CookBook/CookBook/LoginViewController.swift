@@ -26,7 +26,8 @@ class LoginViewController: UIViewController {
             continueAsExistingUserButton.isHidden = true;
         }
         /** TESTING**/
-        TESTING_RUN()
+//        TESTING_RUN()
+        MEAL_TESTING_RUN()
     }
     
     func TESTING_RUN(){
@@ -40,6 +41,12 @@ class LoginViewController: UIViewController {
 
         let allUsers: Optional = dbmodel?.getAllUsers()
         print("all Users: ", allUsers as Any)
+    }
+    
+    func MEAL_TESTING_RUN(){
+        let dbmodel = mealModel()
+        dbmodel.addRecipe("recipe")
+        dbmodel.getAllRecipes("recipe")
     }
     
     //Function to fetch the user from core data

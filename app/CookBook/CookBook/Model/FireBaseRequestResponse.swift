@@ -15,7 +15,7 @@ struct AuthorOfMeal: Decodable {
 }
 
 
-struct Meal: Decodable {
+struct Meall: Decodable {
     let id: String
     let author: AuthorOfMeal
 
