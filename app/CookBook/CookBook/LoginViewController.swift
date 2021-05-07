@@ -15,8 +15,11 @@ class LoginViewController: UIViewController {
     var users:[User]?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    //continueAsNewUserButton.setTitle("Continue As " + "xxxx", for: .normal)
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        
         getUser()
         if(self.users != nil && self.users!.count > 0){
             continueAsNewUserButton.isHidden = true
@@ -29,15 +32,15 @@ class LoginViewController: UIViewController {
     }
     
     func TESTING_RUN(){
-        let dbModel = dbModel()
+        let dbmodel = dbModel()
         let uid = "uid123"
-        dbModel?.setUserValue(uid: uid, username: "ramy1951")
-        let returnedUser = dbModel?.getUserBy(uid: uid)
-    
-        
+        dbmodel?.setUserValue(uid: uid, username: "ramy1951")
+        let returnedUser = dbmodel?.getUserBy(uid: uid)
+
+
         print("returned User: \(String(describing: returnedUser))")
-        
-        let allUsers: Optional = dbModel?.getAllUsers()
+
+        let allUsers: Optional = dbmodel?.getAllUsers()
         print("all Users: ", allUsers as Any)
     }
     
@@ -48,7 +51,7 @@ class LoginViewController: UIViewController {
             self.users = try context.fetch(User.fetchRequest())
             if(self.users != nil && self.users!.count > 0){
                 DispatchQueue.main.async {
-                    self.continueAsNewUserButton.setTitle("Continue As " + self.users![0].name!, for: .normal)
+                    self.continueAsExistingUserButton.setTitle("Continue As " + self.users![0].name!, for: .normal)
                     print("Continue As " + self.users![0].name!)
                 }
                 //continueAsNewUserButton.setTitle("Continue As " + self.users![0].name!, for: .normal)
