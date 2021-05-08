@@ -18,10 +18,13 @@ struct meal{
 }
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    //var model: dbModel = dbModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        model.getMeals(){
+//            self.refreshTable()
+//        }
     }
     
     @IBOutlet weak var cardTableView: UITableView!
