@@ -11,21 +11,28 @@ struct meal{
     var name: String;
     var description: String;
     var imageData: String;
+    var ingredients: String;
+    var directions: String;
+    var category: String;
+    var prepTime: String;
 }
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    //var model: dbModel = dbModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        model.getMeals(){
+//            self.refreshTable()
+//        }
     }
     
     @IBOutlet weak var cardTableView: UITableView!
     
     let mealsFetched: [meal] = [
-        meal(name: "name1", description: "Description1", imageData: imageStockString),
-        meal(name: "name2", description: "Description2", imageData: imageStockString),
-        meal(name: "name3", description: "Description3", imageData: imageStockString),
+        meal(name: "name1", description: "Description1", imageData: imageStockString, ingredients: "", directions: "", category: "", prepTime: ""),
+        meal(name: "name2", description: "Description2", imageData: imageStockString, ingredients: "", directions: "", category: "", prepTime: ""),
+        meal(name: "name3", description: "Description3", imageData: imageStockString, ingredients: "", directions: "", category: "", prepTime: ""),
     ]
     
     

@@ -12,17 +12,18 @@ import CoreData
 class mealModel {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    func addRecipe(_ title: String) {
+    func addRecipe(meal : meal) {
+        
         //TODO: begin transaction
         //TODO: get context right
-        let newMeal = Meal(context: self.context)
-
-        context.insert(newMeal)
-        do{
-            try context.save()
-        }catch{
-            print(error)
-        }
+//        let newMeal = Meal(context: self.context)
+//
+//        context.insert(newMeal)
+//        do{
+//            try context.save()
+//        }catch{
+//            print(error)
+//        }
         //
     }
     
