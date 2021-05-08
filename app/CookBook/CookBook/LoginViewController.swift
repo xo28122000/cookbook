@@ -26,27 +26,39 @@ class LoginViewController: UIViewController {
             continueAsExistingUserButton.isHidden = true;
         }
         /** TESTING**/
-//        TESTING_RUN()
+      TESTING_RUN()
         MEAL_TESTING_RUN()
+        loadMeal()
+    }
+    
+    func loadMeal(){
+        let dbmodel = dbModel()
+        let mealName = "Noodles"
+        let mealDes = "Hot Chilli Garlic Noodles"
+        let mealImage = "nothing"
+        let newMeal = meal(name: mealName, description: mealDes, imageData: mealImage, ingredients: "", directions: "", category: "", prepTime: "")
+        //dbmodel?.addMeals()
+        dbmodel?.getAllTheUsers()
+        dbmodel?.getMeals()
     }
     
     func TESTING_RUN(){
-        let dbmodel = dbModel()
-        let uid = "uid123"
-        dbmodel?.setUserValue(uid: uid, username: "ramy1951")
-        let returnedUser = dbmodel?.getUserBy(uid: uid)
-
-
-        print("returned User: \(String(describing: returnedUser))")
-
-        let allUsers: Optional = dbmodel?.getAllUsers()
-        print("all Users: ", allUsers as Any)
+//        let dbmodel = dbModel()
+//        let uid = "uid123"
+//        dbmodel?.setUserValue(uid: uid, username: "ramy1951")
+//        let returnedUser = dbmodel?.getUserBy(uid: uid)
+//
+//
+//        print("returned User: \(String(describing: returnedUser))")
+//
+//        let allUsers: Optional = dbmodel?.getAllUsers()
+//        print("all Users: ", allUsers as Any)
     }
     
     func MEAL_TESTING_RUN(){
-        let dbmodel = mealModel()
-        dbmodel.addRecipe("recipe")
-        dbmodel.getAllRecipes("recipe")
+//        let dbmodel = mealModel()
+//        dbmodel.addRecipe("recipe")
+//        dbmodel.getAllRecipes("recipe")
     }
     
     //Function to fetch the user from core data
