@@ -17,7 +17,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var directionsTextView: UITextView!
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var prepTimeTextField: UITextField!
-    
+    @IBOutlet weak var selectedImageView: UIImageView!
     
     
     let pickerData: [String] = ["Vegan", "Vegetarian", "Workout", "Daily", "Party", "Bulk"]
@@ -43,7 +43,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            print(pickedImage)
+            selectedImageView.image = pickedImage
         }
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             dismiss(animated: true, completion: nil)
