@@ -39,12 +39,12 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
       }
     
     @IBAction func addRecipeButtonClick(_ sender: Any) {
-//        let dbmodel = dbModel()
-//        let mealName = titleTextField.text! as String
-//        let mealDes = descriptionTextView.text! as String
-//        let mealImage = "nothing"
-//        let newMeal = meal(name: mealName, description: mealDes, imageData: mealImage, ingredients: "", directions: "", category: "", prepTime: "")
-//        dbmodel?.addMeals(meal: newMeal)
+        let dbmodel = dbModel()
+        let mealName = titleTextField.text! as String
+        let mealDes = descriptionTextView.text! as String
+        let mealImage = "nothing"
+        let newMeal = meal(name: mealName, description: mealDes, imageData: mealImage, ingredients: "", directions: "", category: "", prepTime: "")
+        dbmodel?.addMeals(meal: newMeal)
         self.dismiss(animated: true, completion: nil)
     }
     
