@@ -17,6 +17,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var prepTimeTextField: UITextField!
     @IBOutlet weak var selectedImageView: UIImageView!
+    var selectedCategory = ""
     
     
     let pickerData: [String] = ["Vegan", "Vegetarian", "Workout", "Daily", "Party", "Bulk"]
@@ -38,6 +39,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
           // This method is triggered whenever the user makes a change to the picker selection.
           // The parameter named row and component represents what was selected.
+        self.selectedCategory = pickerData[row]
       }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -54,16 +56,37 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func addRecipeButtonClick(_ sender: Any) {
         let dbmodel = dbModel()
         
-//        guard let mealName: String =  mealName != "" else {
-//            let alert = UIAlertController(title: "Enter a meal name!", message: "Meal name cannot be empty", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//            return
-//        }
-        let mealName = titleTextField.text! as String
-        let mealDes = descriptionTextView.text! as String
-        let mealImage = "nothing"
-        let newMeal = meal(name: mealName, description: mealDes, imageData: mealImage, ingredients: "", directions: "", category: "", prepTime: "")
+        //guarding against user not entering title for recipe.
+        guard let mealName: String = titleTextField.text, mealName != "" else {
+            let alert = UIAlertController(title: "Enter a meal name!", message: "Meal name cannot be empty", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        
+        
+        let mealDes = descriptionTextView.text ?? ""
+        let mealImage = "nothing" //TODO connect the image selected
+        let ingredients = ingredientsTextView.text ?? ""
+        let directions = directionsTextView.text ?? ""
+        let category =  self.selectedCategory
+        let prepTime = prepTimeTextField.text ?? ""
+        
+        
+        let newMeal = meal(
+            name: mealName,
+            description: mealDes,
+            imageData: mealImage,
+            ingredients: ingredients,
+            directions: directions,
+            category: category,
+            prepTime: prepTime
+        )
+
         dbmodel.addMeals(meal: newMeal)
         self.dismiss(animated: true, completion: nil)
     }
