@@ -176,11 +176,28 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cardTableView" destination="2tM-mH-Y4a" id="Kjd-4G-xyH"/>
+                        <segue destination="4ZV-ny-otV" kind="show" identifier="recipeSelected" id="WG2-UQ-rJe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2a-0b-z3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1216" y="895"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZCa-Qe-8Vp">
+            <objects>
+                <viewController id="4ZV-ny-otV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mqs-5F-GAt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4lC-0M-Psl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f4B-JB-NGW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m2L-rQ-9lB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="522" y="954"/>
         </scene>
         <!--Account-->
         <scene sceneID="kNk-Yo-czu">

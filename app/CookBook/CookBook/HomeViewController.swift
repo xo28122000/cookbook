@@ -45,7 +45,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+        mealsFetched[indexPath.row]
+        performSegue(withIdentifier: "recipeSelected", sender: nil)
+        // presentt new scewwn
+        
+    }
 
 }
 
