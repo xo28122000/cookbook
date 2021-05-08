@@ -14,7 +14,6 @@ target 'CookBook' do
   target 'CookBookTests' do
     inherit! :search_paths
     # Pods for testing
-      # Pods for firbaseSwiftProj
 
   end
 
