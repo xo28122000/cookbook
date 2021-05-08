@@ -23,6 +23,8 @@
 		092D40FF263A05A000D7230F /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092D40FE263A05A000D7230F /* AddRecipeViewController.swift */; };
 		09BEE7FE2637709E002E4CF3 /* testImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEE7FD2637709E002E4CF3 /* testImageFile.swift */; };
 		09BEE80326377165002E4CF3 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEE80226377165002E4CF3 /* CardCell.swift */; };
+		2D1822DB264710E9004F6FC0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1822DA264710E8004F6FC0 /* UserModel.swift */; };
+		2D1822DD26471394004F6FC0 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1822DC26471394004F6FC0 /* UserItem.swift */; };
 		2D5865CD264519D100B5C5ED /* mealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5865CC264519D100B5C5ED /* mealModel.swift */; };
 		2D9E34832639290F00465470 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D9E34822639290F00465470 /* GoogleService-Info.plist */; };
 		2D9EFBFF2641E7D800FBFF05 /* dbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EFBFE2641E7D800FBFF05 /* dbModel.swift */; };
@@ -72,6 +74,8 @@
 		09BEE80226377165002E4CF3 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		0A7319763783CA049B5A56E0 /* Pods-CookBook-CookBookUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookBook-CookBookUITests.debug.xcconfig"; path = "Target Support Files/Pods-CookBook-CookBookUITests/Pods-CookBook-CookBookUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B472D4CDC8771FB4B4A8178 /* Pods-CookBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookBookTests.release.xcconfig"; path = "Target Support Files/Pods-CookBookTests/Pods-CookBookTests.release.xcconfig"; sourceTree = "<group>"; };
+		2D1822DA264710E8004F6FC0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		2D1822DC26471394004F6FC0 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		2D5865CC264519D100B5C5ED /* mealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mealModel.swift; sourceTree = "<group>"; };
 		2D9E34822639290F00465470 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D9EFBFE2641E7D800FBFF05 /* dbModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dbModel.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				0265F0B9263E850900E7107D /* User+CoreDataProperties.swift */,
 				2D9EFC002641EF4C00FBFF05 /* FireBaseRequestResponse.swift */,
 				2D5865CC264519D100B5C5ED /* mealModel.swift */,
+				2D1822DA264710E8004F6FC0 /* UserModel.swift */,
+				2D1822DC26471394004F6FC0 /* UserItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,6 +462,8 @@
 				0265F0BC263E850900E7107D /* User+CoreDataClass.swift in Sources */,
 				0927D9CE2630906B0055246C /* LoginViewController.swift in Sources */,
 				0927D9CA2630906B0055246C /* AppDelegate.swift in Sources */,
+				2D1822DD26471394004F6FC0 /* UserItem.swift in Sources */,
+				2D1822DB264710E9004F6FC0 /* UserModel.swift in Sources */,
 				0927D9CC2630906B0055246C /* SceneDelegate.swift in Sources */,
 				2D9EFC012641EF4C00FBFF05 /* FireBaseRequestResponse.swift in Sources */,
 				09BEE7FE2637709E002E4CF3 /* testImageFile.swift in Sources */,
