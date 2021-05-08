@@ -64,7 +64,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let mealDes = descriptionTextView.text! as String
         let mealImage = "nothing"
         let newMeal = meal(name: mealName, description: mealDes, imageData: mealImage, ingredients: "", directions: "", category: "", prepTime: "")
-        dbmodel?.addMeals(meal: newMeal)
+        dbmodel.addMeals(meal: newMeal)
         self.dismiss(animated: true, completion: nil)
     }
     

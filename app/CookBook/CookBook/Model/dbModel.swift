@@ -13,7 +13,7 @@ class dbModel {
     var ref: DatabaseReference!
     var meals = [meal]()
     
-    init?() {
+    init() {
         ref = Database.database().reference()
     }
     
