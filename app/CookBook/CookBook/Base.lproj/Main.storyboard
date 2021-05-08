@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DuT-Co-bHU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DuT-Co-bHU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -245,7 +245,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kVL-Bk-j4m" userLabel="Vertical Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1230"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4U-ch-1Aw">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -588,8 +588,33 @@
                                                     <constraint firstAttribute="height" constant="30" id="P6D-LT-XVu"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyL-YR-gQk" userLabel="Add Image View">
+                                                <rect key="frame" x="0.0" y="750" width="414" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWL-cW-tAg">
+                                                        <rect key="frame" x="162.5" y="10" width="89" height="30"/>
+                                                        <state key="normal" title="Select Image"/>
+                                                        <connections>
+                                                            <action selector="selectImageButtonClick:" destination="8L8-gd-MY4" eventType="touchUpInside" id="DYx-zo-lGT"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstItem="ZWL-cW-tAg" firstAttribute="centerY" secondItem="jyL-YR-gQk" secondAttribute="centerY" id="DIo-V3-wbU"/>
+                                                    <constraint firstAttribute="height" constant="50" id="kjG-fG-ElJ"/>
+                                                    <constraint firstItem="ZWL-cW-tAg" firstAttribute="centerX" secondItem="jyL-YR-gQk" secondAttribute="centerX" id="pS8-03-uEy"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O5W-it-hzI" userLabel="Spacer View">
+                                                <rect key="frame" x="0.0" y="800" width="414" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="S5X-hK-e6E"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNm-6q-Oyt" userLabel="Submit View">
-                                                <rect key="frame" x="0.0" y="750" width="414" height="400"/>
+                                                <rect key="frame" x="0.0" y="830" width="414" height="400"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crp-eR-2QQ">
                                                         <rect key="frame" x="153" y="0.0" width="108" height="30"/>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     
 
@@ -21,7 +21,9 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     let pickerData: [String] = ["Vegan", "Vegetarian", "Workout", "Daily", "Party", "Bulk"]
-
+    let imagePicker = UIImagePickerController()
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -39,14 +41,35 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
           // The parameter named row and component represents what was selected.
       }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            print(pickedImage)
+        }
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            dismiss(animated: true, completion: nil)
+        }
+
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func addRecipeButtonClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func selectImageButtonClick(_ sender: Any) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+               
+        present(imagePicker, animated: true, completion: nil)
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.categoryPicker.delegate = self
         self.categoryPicker.dataSource = self
+        
+        imagePicker.delegate = self
         
         titleTextField.layer.borderColor = UIColor.gray.cgColor;
         titleTextField.layer.borderWidth = 1.0;
@@ -69,6 +92,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         directionsTextView.layer.cornerRadius = 5.0;
         
 //        _ = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
     }
 //    @objc func dismissKeyboard() {
 //        view.endEditing(true)

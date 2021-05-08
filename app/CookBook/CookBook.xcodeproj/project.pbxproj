@@ -152,7 +152,6 @@
 			children = (
 				0265F0B8263E84EE00E7107D /* Model */,
 				09BEE80226377165002E4CF3 /* CardCell.swift */,
-				09BEE7FD2637709E002E4CF3 /* testImageFile.swift */,
 				0927D9CD2630906B0055246C /* LoginViewController.swift */,
 				0927DA0226309E280055246C /* HomeViewController.swift */,
 				0927D9CF2630906B0055246C /* Main.storyboard */,
@@ -164,6 +163,7 @@
 				0927D9C92630906A0055246C /* AppDelegate.swift */,
 				0927D9CB2630906B0055246C /* SceneDelegate.swift */,
 				092D40FE263A05A000D7230F /* AddRecipeViewController.swift */,
+				09BEE7FD2637709E002E4CF3 /* testImageFile.swift */,
 			);
 			path = CookBook;
 			sourceTree = "<group>";
