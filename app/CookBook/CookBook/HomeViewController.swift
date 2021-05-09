@@ -18,14 +18,25 @@ struct meal{
 }
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    //var model: dbModel = dbModel()
+    var model: dbModel = dbModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        model.getMeals(){
 //            self.refreshTable()
 //        }
+        model.getMeals()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateMeals(_:)), name: NSNotification.Name(rawValue: "mealArray"), object: nil)
+        
     }
+
+    
+    @objc func updateMeals(_ notification: NSNotification){
+        
+        print("fetching all the meals", model.meals)
+    }
+    
+    
     
     @IBOutlet weak var cardTableView: UITableView!
     

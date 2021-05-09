@@ -35,7 +35,7 @@ class dbModel {
 
        
     func getMeals() -> Void{
-        ref.child("meals").observe(.value){snapshot in
+        ref.child("meals").observe(.value){ [self]snapshot in
             for child in snapshot.children{
                 let mealObj = child as! DataSnapshot
                 let mealDictionary = mealObj.value as! [String: String]
@@ -46,6 +46,7 @@ class dbModel {
                 let newMeal = meal(name: (mealDictionary["name"])!, description: (mealDictionary["description"])!, imageData: "String", ingredients: "String", directions: "String", category: "String", prepTime: "")
                 self.meals.append(newMeal)
             }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mealArray"), object: nil)
         }
     }
 
