@@ -13,7 +13,7 @@ class dbModel {
     var ref: DatabaseReference!
     var storage: Storage!
     var meals = [meal]()
-    var imageUrl: String!
+    var imageUrl: String?
     
     init() {
         ref = Database.database().reference()
@@ -33,9 +33,10 @@ class dbModel {
                     storageRef.downloadURL(completion: {url,error in
                         print("The url of the downloaded image is: " + (url?.absoluteString)!)
                         self.imageUrl = (url?.absoluteString)!
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "imageUpload"), object: nil)
                     })
                 }
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "imageUpload"), object: nil)
+                
             }
         }else{
             print("Failed to compress image")
@@ -44,6 +45,7 @@ class dbModel {
     
     
     func addMeals(meal : meal) -> Void{
+        print("________called addmeal------------")
         let newMeal = [
             "uid" : UUID().uuidString,
             "name": meal.name,

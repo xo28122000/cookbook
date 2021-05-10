@@ -24,7 +24,14 @@ class CardCell: UITableViewCell {
 
         nameLabel.text = name
         descriptionLabel.text = description
-        imgView.image = UIImage(named: "icon1")
+        guard
+            let defualtUIImg = UIImage(named: "icon1"),
+            let defaultImg = defualtUIImg.jpegData(compressionQuality: 1)
+        else {return}
+        let url = URL(string: imgData)
+        let data = try? Data(contentsOf: url!)
+        imgView.image = UIImage(data: data ?? defaultImg)
+        print("-----thehhehehe uuurrrlllll", url, "and dattttaaa------", data)
 //        imgView.image = UIImage(data: imageData)
         
         cardView.layer.shadowColor = UIColor.gray.cgColor

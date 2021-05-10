@@ -105,8 +105,12 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     @objc func updateImageUrl(_ notification: NSNotification){
-        guard var meal = self.newMeal else {return}
-        meal.imageData = self.dbmodel.imageUrl
+        //print("--------CAAALLLLLBACKKK---------------", self.dbmodel.imageUrl)
+        guard
+            var meal = self.newMeal,
+            let imgUrl = self.dbmodel.imageUrl
+        else {return}
+        meal.imageData = imgUrl
         self.dbmodel.addMeals(meal: meal)
         self.dismiss(animated: true, completion: nil)
     }
