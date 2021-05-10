@@ -70,7 +70,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         
         let mealDes = descriptionTextView.text ?? ""
-        let mealImage = "nothing" //TODO connect the image selected
+        let mealImage = selectedImageView.image?.pngData()?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters) ?? ""
         let ingredients = ingredientsTextView.text ?? ""
         let directions = directionsTextView.text ?? ""
         let category =  self.selectedCategory
@@ -86,7 +86,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             category: category,
             prepTime: prepTime
         )
-
+//        print(newMeal)
         dbmodel.addMeals(meal: newMeal)
         self.dismiss(animated: true, completion: nil)
     }
