@@ -17,10 +17,8 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var prepTimeTextField: UITextField!
     @IBOutlet weak var selectedImageView: UIImageView!
-    var selectedCategory = ""
-    
-    
     let pickerData: [String] = ["Vegan", "Vegetarian", "Workout", "Daily", "Party", "Bulk"]
+    var selectedCategory = ""
     let imagePicker = UIImagePickerController()
     
     
@@ -57,36 +55,41 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let dbmodel = dbModel()
         
         //guarding against user not entering title for recipe.
-        guard let mealName: String = titleTextField.text, mealName != "" else {
-            let alert = UIAlertController(title: "Enter a meal name!", message: "Meal name cannot be empty", preferredStyle: .alert)
+        guard
+            let mealName: String = titleTextField.text,
+            let mealDes: String = descriptionTextView.text,
+            let ingredients = ingredientsTextView.text,
+            let directions = directionsTextView.text,
+            let prepTime = prepTimeTextField.text,
+            let mealImage: UIImage = selectedImageView.image,
+            let mealImagePngData = mealImage.pngData()
+        else {
+            let alert = UIAlertController(title: "Fill all required fields", message: "Please enter all fields in this form", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
-            
             alert.addAction(cancelAction)
-            
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        let category = self.selectedCategory
+        let mealImageString = mealImagePngData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
+        if(mealName.isEmpty || mealDes.isEmpty || ingredients.isEmpty || directions.isEmpty || prepTime.isEmpty || category.isEmpty){
+            let alert = UIAlertController(title: "Fill all required fields", message: "Please enter all fields in this form", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
             self.present(alert, animated: true, completion: nil)
             return
         }
         
-        
-        
-        let mealDes = descriptionTextView.text ?? ""
-        let mealImage = "nothing" //TODO connect the image selected
-        let ingredients = ingredientsTextView.text ?? ""
-        let directions = directionsTextView.text ?? ""
-        let category =  self.selectedCategory
-        let prepTime = prepTimeTextField.text ?? ""
-        
-        
         let newMeal = meal(
             name: mealName,
             description: mealDes,
-            imageData: mealImage,
+            imageData: mealImageString,
             ingredients: ingredients,
             directions: directions,
             category: category,
             prepTime: prepTime
         )
-
+//        print(newMeal)
         dbmodel.addMeals(meal: newMeal)
         self.dismiss(animated: true, completion: nil)
     }
@@ -105,6 +108,8 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.categoryPicker.dataSource = self
         
         imagePicker.delegate = self
+        
+        selectedCategory = self.pickerData[0]
         
         titleTextField.layer.borderColor = UIColor.gray.cgColor;
         titleTextField.layer.borderWidth = 1.0;

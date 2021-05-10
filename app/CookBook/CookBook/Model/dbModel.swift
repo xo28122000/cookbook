@@ -58,10 +58,10 @@ class dbModel {
             for child in snapshot.children{
                 let mealObj = child as! DataSnapshot
                 let mealDictionary = mealObj.value as! [String: String]
-                print("\n-----NEXT MEAL----------")
-                print("MealName: ", (mealDictionary["name"])!)
-                print("Meal Description: ", (mealDictionary["description"])!)
-                print("Meal uid: ", (mealDictionary["uid"])!)
+//                print("\n-----NEXT MEAL----------")
+//                print("MealName: ", (mealDictionary["name"])!)
+//                print("Meal Description: ", (mealDictionary["description"])!)
+//                print("Meal uid: ", (mealDictionary["uid"])!)
                 let newMeal = meal(name: (mealDictionary["name"])!, description: (mealDictionary["description"])!, imageData: "String", ingredients: "String", directions: "String", category: "String", prepTime: "")
                 self.meals.append(newMeal)
             }
