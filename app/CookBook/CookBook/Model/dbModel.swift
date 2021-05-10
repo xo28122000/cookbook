@@ -7,14 +7,33 @@
 
 import Foundation
 import Firebase
-
+import FirebaseStorage
 
 class dbModel {
     var ref: DatabaseReference!
+    var storage: Storage!
+    var storageRef: DatabaseReference!
     var meals = [meal]()
     
     init() {
         ref = Database.database().reference()
+        storage = FirebaseStorage.Storage.storage(url: "gs://grandmas-cookbook.appspot.com/")
+    }
+    
+    func uploadImage(image: UIImage){
+        let imageId = UUID().uuidString
+        if let imageData = image.jpegData(compressionQuality: 1){
+            storage.reference().child("images/\(imageId)").putData(imageData, metadata: nil){(data, err) in
+                if let err = err{
+                    print("Error uploading image")
+                }else{
+                    print("Successfully uploaded image")
+                }
+            }
+        }else{
+            print("Failed to compress image")
+        }
+        
     }
     
     
