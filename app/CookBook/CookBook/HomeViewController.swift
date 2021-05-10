@@ -19,33 +19,9 @@ struct meal{
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var model: dbModel = dbModel()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        model.getMeals(){
-//            self.refreshTable()
-//        }
-        model.getMeals()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateMeals(_:)), name: NSNotification.Name(rawValue: "mealArray"), object: nil)
-        
-    }
-
-    
-    @objc func updateMeals(_ notification: NSNotification){
-        
-        print("fetching all the meals", model.meals)
-    }
-    
-    
+    var mealsFetched: [meal] = []
     
     @IBOutlet weak var cardTableView: UITableView!
-    
-    let mealsFetched: [meal] = [
-        meal(name: "name1", description: "Description1", imageData: imageStockString, ingredients: "", directions: "", category: "", prepTime: ""),
-        meal(name: "name2", description: "Description2", imageData: imageStockString, ingredients: "", directions: "", category: "", prepTime: ""),
-        meal(name: "name3", description: "Description3", imageData: imageStockString, ingredients: "", directions: "", category: "", prepTime: ""),
-    ]
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mealsFetched.count;
@@ -56,7 +32,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         else{
             return UITableViewCell()
         };
-        
+        print("connfigure: ", mealsFetched[indexPath.row].name)
         cell.configure(
             name: mealsFetched[indexPath.row].name,
             description: mealsFetched[indexPath.row].description,
@@ -66,10 +42,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        tableView.deselectRow(at: indexPath, animated: true)
-        mealsFetched[indexPath.row]
+//        mealsFetched[indexPath.row]
         performSegue(withIdentifier: "recipeSelected", sender: nil)
-        // presentt new scewwn
         
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        model.getMeals()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateMeals(_:)), name: NSNotification.Name(rawValue: "mealArray"), object: nil)
+        
+    }
+
+    
+    @objc func updateMeals(_ notification: NSNotification){
+        mealsFetched = model.meals
+        self.cardTableView.reloadData()
     }
 
 }
