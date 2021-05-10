@@ -18,7 +18,7 @@ struct meal{
 }
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var model: dbModel = dbModel()
+    var model: dbModel = dbModel.getModelInstance()
     var mealsFetched: [meal] = []
     
     @IBOutlet weak var cardTableView: UITableView!
@@ -32,7 +32,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         else{
             return UITableViewCell()
         };
-        print("connfigure: ", mealsFetched[indexPath.row].name)
         cell.configure(
             name: mealsFetched[indexPath.row].name,
             description: mealsFetched[indexPath.row].description,
@@ -41,8 +40,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        mealsFetched[indexPath.row]
+        self.model.setSelectedMeal(meal: mealsFetched[indexPath.row])
+        self.model.selectedMeal = mealsFetched[indexPath.row]
         performSegue(withIdentifier: "recipeSelected", sender: nil)
         
     }

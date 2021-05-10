@@ -12,9 +12,20 @@ import Firebase
 class dbModel {
     var ref: DatabaseReference!
     var meals = [meal]()
-    
+    var selectedMeal: meal?
+    static var globalModel: dbModel?
     init() {
         ref = Database.database().reference()
+    }
+    
+    static func getModelInstance() -> dbModel{
+        if let model = self.globalModel{
+            return model
+        }else{
+            let newModel = dbModel()
+            self.globalModel = newModel
+            return newModel
+        }
     }
     
     
@@ -32,8 +43,16 @@ class dbModel {
         let uuid = UUID().uuidString
        ref.child("meals/\(uuid)").setValue(newMeal)
     }
-
-       
+    
+    func setSelectedMeal(meal: meal) -> Void{
+        self.selectedMeal = meal
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SelectedMealUpdated"), object: nil)
+    }
+    
+    func getSelectedMeal() -> meal?{
+        return self.selectedMeal
+    }
+    
     func getMeals() -> Void{
         ref.child("meals").observe(.value){ [self]snapshot in
             for child in snapshot.children{

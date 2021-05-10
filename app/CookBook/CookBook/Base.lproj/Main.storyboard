@@ -181,10 +181,10 @@
             </objects>
             <point key="canvasLocation" x="1216" y="895"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Recipe View Controller-->
         <scene sceneID="ZCa-Qe-8Vp">
             <objects>
-                <viewController id="4ZV-ny-otV" sceneMemberID="viewController">
+                <viewController id="4ZV-ny-otV" customClass="DetailRecipeViewController" customModule="CookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mqs-5F-GAt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -421,6 +421,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f4B-JB-NGW"/>
+                    <connections>
+                        <outlet property="categoryLabel" destination="954-BW-nwu" id="SJz-2K-IC2"/>
+                        <outlet property="descriptionTextView" destination="j5h-Jl-USe" id="GG5-09-Nen"/>
+                        <outlet property="directionsTextView" destination="Osx-ai-zqP" id="FHV-Bc-9aj"/>
+                        <outlet property="ingredientsTextView" destination="VdN-bW-2eV" id="SPA-Uv-qjM"/>
+                        <outlet property="mealImageView" destination="98z-N3-nV8" id="AMD-7z-QnE"/>
+                        <outlet property="mealNameLabel" destination="92i-SD-ens" id="JzP-l9-bho"/>
+                        <outlet property="prepTimeLabel" destination="xoF-GB-35Y" id="AZT-SJ-mAW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2L-rQ-9lB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
