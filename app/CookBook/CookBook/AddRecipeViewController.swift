@@ -90,6 +90,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             prepTime: prepTime
         )
 //        print(newMeal)
+        dbmodel.uploadImage(image: mealImage)
         dbmodel.addMeals(meal: newMeal)
         self.dismiss(animated: true, completion: nil)
     }

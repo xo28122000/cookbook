@@ -12,28 +12,31 @@ import FirebaseStorage
 class dbModel {
     var ref: DatabaseReference!
     var storage: Storage!
-    var storageRef: DatabaseReference!
     var meals = [meal]()
     
     init() {
         ref = Database.database().reference()
-        storage = FirebaseStorage.Storage.storage(url: "gs://grandmas-cookbook.appspot.com/")
+        storage = Storage.storage()
     }
     
     func uploadImage(image: UIImage){
         let imageId = UUID().uuidString
         if let imageData = image.jpegData(compressionQuality: 1){
-            storage.reference().child("images/\(imageId)").putData(imageData, metadata: nil){(data, err) in
+            let storageRef = storage.reference().child("images/\(imageId)")
+            
+            storageRef.putData(imageData, metadata: nil){(data, err) in
                 if let err = err{
-                    print("Error uploading image")
+                    print("Error uploading image", err)
                 }else{
                     print("Successfully uploaded image")
+                    storageRef.downloadURL(completion: {url,error in
+                        print("The url of the downloaded image is: " + (url?.absoluteString)!)
+                    })
                 }
             }
         }else{
             print("Failed to compress image")
         }
-        
     }
     
     
