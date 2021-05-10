@@ -7,15 +7,42 @@
 
 import Foundation
 import Firebase
-
+import FirebaseStorage
 
 class dbModel {
     var ref: DatabaseReference!
+    var storage: Storage!
     var meals = [meal]()
     var selectedMeal: meal?
     static var globalModel: dbModel?
+
+    var imageUrl: String!
+    
     init() {
         ref = Database.database().reference()
+        storage = Storage.storage()
+    }
+    
+    func uploadImage(image: UIImage){
+        let imageId = UUID().uuidString
+        if let imageData = image.jpegData(compressionQuality: 1){
+            let storageRef = storage.reference().child("images/\(imageId)")
+            
+            storageRef.putData(imageData, metadata: nil){(data, err) in
+                if let err = err{
+                    print("Error uploading image", err)
+                }else{
+                    print("Successfully uploaded image")
+                    storageRef.downloadURL(completion: {url,error in
+                        print("The url of the downloaded image is: " + (url?.absoluteString)!)
+                        self.imageUrl = (url?.absoluteString)!
+                    })
+                }
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "imageUpload"), object: nil)
+            }
+        }else{
+            print("Failed to compress image")
+        }
     }
     
     static func getModelInstance() -> dbModel{

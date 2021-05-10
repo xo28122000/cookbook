@@ -20,6 +20,8 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     let pickerData: [String] = ["Vegan", "Vegetarian", "Workout", "Daily", "Party", "Bulk"]
     var selectedCategory = ""
     let imagePicker = UIImagePickerController()
+    var newMeal : meal?
+    let dbmodel = dbModel()
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -52,7 +54,6 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     @IBAction func addRecipeButtonClick(_ sender: Any) {
-        let dbmodel = dbModel()
         
         //guarding against user not entering title for recipe.
         guard
@@ -80,26 +81,34 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             return
         }
         
-        let newMeal = meal(
+        self.newMeal = meal(
             name: mealName,
             description: mealDes,
-            imageData: mealImageString,
+            imageData: "",
             ingredients: ingredients,
             directions: directions,
             category: category,
             prepTime: prepTime
         )
 //        print(newMeal)
-        dbmodel.addMeals(meal: newMeal)
-        self.dismiss(animated: true, completion: nil)
+        dbmodel.uploadImage(image: mealImage)
+        
     }
     
     @IBAction func selectImageButtonClick(_ sender: Any) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
+        
                
         present(imagePicker, animated: true, completion: nil)
 
+    }
+    
+    @objc func updateImageUrl(_ notification: NSNotification){
+        guard var meal = self.newMeal else {return}
+        meal.imageData = self.dbmodel.imageUrl
+        self.dbmodel.addMeals(meal: meal)
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -109,7 +118,11 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         imagePicker.delegate = self
         
+        
+        
         selectedCategory = self.pickerData[0]
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateImageUrl(_:)), name: NSNotification.Name(rawValue: "imageUpload"), object: nil)
         
         titleTextField.layer.borderColor = UIColor.gray.cgColor;
         titleTextField.layer.borderWidth = 1.0;
