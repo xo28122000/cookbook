@@ -13,7 +13,10 @@ class dbModel {
     var ref: DatabaseReference!
     var storage: Storage!
     var meals = [meal]()
+
     var imageUrl: String?
+    var selectedMeal: meal?
+    static var globalModel: dbModel?
     
     init() {
         ref = Database.database().reference()
@@ -43,6 +46,16 @@ class dbModel {
         }
     }
     
+    static func getModelInstance() -> dbModel{
+        if let model = self.globalModel{
+            return model
+        }else{
+            let newModel = dbModel()
+            self.globalModel = newModel
+            return newModel
+        }
+    }
+    
     
     func addMeals(meal : meal) -> Void{
         print("________called addmeal------------")
@@ -59,8 +72,16 @@ class dbModel {
         let uuid = UUID().uuidString
        ref.child("meals/\(uuid)").setValue(newMeal)
     }
-
-       
+    
+    func setSelectedMeal(meal: meal) -> Void{
+        self.selectedMeal = meal
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SelectedMealUpdated"), object: nil)
+    }
+    
+    func getSelectedMeal() -> meal?{
+        return self.selectedMeal
+    }
+    
     func getMeals() -> Void{
         ref.child("meals").observe(.value){ [self]snapshot in
             for child in snapshot.children{
