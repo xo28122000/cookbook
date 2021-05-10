@@ -35,7 +35,7 @@ class mealModel {
         do {
             let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Meal")
             
-            var results = try context.fetch(request)
+            let results = try context.fetch(request)
             
 //            results.first
             
