@@ -28,10 +28,20 @@ class CardCell: UITableViewCell {
             let defualtUIImg = UIImage(named: "icon1"),
             let defaultImg = defualtUIImg.jpegData(compressionQuality: 1)
         else {return}
-        let url = URL(string: imgData)
-        let data = try? Data(contentsOf: url!)
-        imgView.image = UIImage(data: data ?? defaultImg)
-        print("-----thehhehehe uuurrrlllll", url, "and dattttaaa------", data)
+        
+        let url: URL? = URL(string: imgData)
+        
+        if let url: URL = url {
+            let data = try? Data(contentsOf: url)
+            imgView.image = UIImage(data: data ?? defaultImg)
+        } else {
+            print("ELSEEEE")
+            imgView.image = UIImage(data: defaultImg)
+        }
+        
+
+        
+
 //        imgView.image = UIImage(data: imageData)
         
         cardView.layer.shadowColor = UIColor.gray.cgColor
