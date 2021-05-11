@@ -32,9 +32,8 @@ class dbModel {
                 if let err = err{
                     print("Error uploading image", err)
                 }else{
-                    print("Successfully uploaded image")
+
                     storageRef.downloadURL(completion: {url,error in
-                        print("The url of the downloaded image is: " + (url?.absoluteString)!)
                         self.imageUrl = (url?.absoluteString)!
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "imageUpload"), object: nil)
                     })
@@ -58,7 +57,6 @@ class dbModel {
     
     
     func addMeals(meal : meal) -> Void{
-        print("________called addmeal------------")
         let newMeal = [
             "uid" : UUID().uuidString,
             "name": meal.name,
@@ -88,10 +86,6 @@ class dbModel {
             for child in snapshot.children{
                 let mealObj = child as! DataSnapshot
                 let mealDictionary = mealObj.value as! [String: String]
-//                print("\n-----NEXT MEAL----------")
-//                print("MealName: ", (mealDictionary["name"])!)
-//                print("Meal Description: ", (mealDictionary["description"])!)
-//                print("Meal image: ", mealDictionary["image"] ?? "")
                 
                 let newMeal = meal(name: (mealDictionary["name"])!, description: (mealDictionary["description"])!, imageData: (mealDictionary["image"]) ?? "", ingredients: (mealDictionary["ingredients"]) ?? "", directions: (mealDictionary["directions"]) ?? "", category: (mealDictionary["category"]) ?? "", prepTime: (mealDictionary["prepTime"]) ?? "")
                 self.meals.append(newMeal)

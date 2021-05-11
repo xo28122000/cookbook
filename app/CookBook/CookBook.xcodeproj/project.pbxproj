@@ -29,7 +29,6 @@
 		2D5865CD264519D100B5C5ED /* mealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5865CC264519D100B5C5ED /* mealModel.swift */; };
 		2D9E34832639290F00465470 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D9E34822639290F00465470 /* GoogleService-Info.plist */; };
 		2D9EFBFF2641E7D800FBFF05 /* dbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EFBFE2641E7D800FBFF05 /* dbModel.swift */; };
-		2D9EFC012641EF4C00FBFF05 /* FireBaseRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EFC002641EF4C00FBFF05 /* FireBaseRequestResponse.swift */; };
 		5A8CDA255EBAF986060C1660 /* Pods_CookBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACC655AC601FB604C45CC82 /* Pods_CookBookTests.framework */; };
 		F94FE8C5406FB59AC76E6414 /* Pods_CookBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FB575BB24034BCDC7AA340 /* Pods_CookBook.framework */; };
 /* End PBXBuildFile section */
@@ -81,7 +80,6 @@
 		2D5865CC264519D100B5C5ED /* mealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mealModel.swift; sourceTree = "<group>"; };
 		2D9E34822639290F00465470 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D9EFBFE2641E7D800FBFF05 /* dbModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dbModel.swift; sourceTree = "<group>"; };
-		2D9EFC002641EF4C00FBFF05 /* FireBaseRequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseRequestResponse.swift; sourceTree = "<group>"; };
 		8ACC655AC601FB604C45CC82 /* Pods_CookBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookBookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4671B40FB56AC44E9CB741 /* Pods_CookBook_CookBookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookBook_CookBookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FB575BB24034BCDC7AA340 /* Pods_CookBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +123,6 @@
 				2D9EFBFE2641E7D800FBFF05 /* dbModel.swift */,
 				0265F0BA263E850900E7107D /* User+CoreDataClass.swift */,
 				0265F0B9263E850900E7107D /* User+CoreDataProperties.swift */,
-				2D9EFC002641EF4C00FBFF05 /* FireBaseRequestResponse.swift */,
 				2D5865CC264519D100B5C5ED /* mealModel.swift */,
 				2D1822DA264710E8004F6FC0 /* UserModel.swift */,
 				2D1822DC26471394004F6FC0 /* UserItem.swift */,
@@ -470,7 +467,6 @@
 				2D1822DB264710E9004F6FC0 /* UserModel.swift in Sources */,
 				099A28A426490A7600ABA55B /* DetailRecipeViewController.swift in Sources */,
 				0927D9CC2630906B0055246C /* SceneDelegate.swift in Sources */,
-				2D9EFC012641EF4C00FBFF05 /* FireBaseRequestResponse.swift in Sources */,
 				2D5865CD264519D100B5C5ED /* mealModel.swift in Sources */,
 				0265F0BB263E850900E7107D /* User+CoreDataProperties.swift in Sources */,
 			);

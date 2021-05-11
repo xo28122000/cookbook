@@ -39,7 +39,6 @@ class LoginViewController: UIViewController {
         }
         
         self.continueAsExistingUserButton.setTitle("Continue As " + lastUser.name, for: .normal)
-//        print("Continue As " + lastUser.name)
     }
 
 
@@ -47,9 +46,14 @@ class LoginViewController: UIViewController {
         
 //        let newUser = User(context: self.context)
         
-        guard let name = enterNameTextField.text else {
-            //TODO handle error in UI
-            print("User cannot have an empty name!")
+        guard
+            let name: String = enterNameTextField.text,
+            name != ""
+        else {
+            let alert = UIAlertController(title: "Name field is empty!", message: "Please enter a name to continue", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
             return
         }
         

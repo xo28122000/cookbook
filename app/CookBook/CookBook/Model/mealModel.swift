@@ -9,40 +9,60 @@ import Foundation
 import UIKit
 import CoreData
 
-class mealModel {
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+class MealModel {
+    // Lazy loading the swift way:
+//    lazy var container: NSPersistentContainer = {
+//        var container =  NSPersistentContainer(name: "CookBook")
+//        container.loadPersistentStores { (_, error: Error?) in
+//            if let error = error {
+//                // You probably want to do some logging?
+//                fatalError("Something went wrong with the database")
+//            }
+//        }
+//        return container
+//    }()
     
-    func addRecipe(meal : meal) {
-        
-        //TODO: begin transaction
-        //TODO: get context right
-//        let newMeal = Meal(context: self.context)
+    init() {
+       
+    }
+    
+    func getAllMeals() -> [meal]{
+        //context for reading
+//        let context = container.viewContext
 //
-//        context.insert(newMeal)
+//
+//        // We are asking for all Users.
+//        let request = NSFetchRequest<NSManagedObject>(entityName: "User")
+//
+//        do {
+//            let results: [NSManagedObject] = try context.fetch(request)
+//
+//            let userItems: [UserItem] = results.compactMap { managedObject in
+//                return UserItem(managedObject: managedObject)
+//            }
+//
+//            return userItems
+//        } catch {
+//            print(error)
+//        }
+        return []
+    }
+    
+    func storeNewUser(user: UserItem){
+//        let context = container.newBackgroundContext()
+//        guard let entity = NSEntityDescription.entity(forEntityName: "User", in: context) else {
+//            return
+//        }
+//
+//        let managedObject = NSManagedObject(entity: entity, insertInto: context)
+//
+//        managedObject.setValue(user.name, forKey: "name")
+//        managedObject.setValue(user.uid, forKey: "uid")
+//
 //        do{
 //            try context.save()
 //        }catch{
-//            print(error)
+//
 //        }
-        //
-    }
-    
-    func getAllRecipes(_ title: String) {
-        //TODO: begin transaction
-        //TODO: get context right
-        //TODO: convert from raw results to
-        //list of Meal objects.
-        do {
-            let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Meal")
-            
-            let results = try context.fetch(request)
-            
-//            results.first
-            
-            print("results: " , results.first)
-        }catch {
-            print("fetch err: ", error)
-        }
-
     }
 }
