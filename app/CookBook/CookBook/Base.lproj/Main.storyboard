@@ -438,7 +438,7 @@
         <!--Account-->
         <scene sceneID="kNk-Yo-czu">
             <objects>
-                <viewController id="dbY-Gk-m3M" sceneMemberID="viewController">
+                <viewController id="dbY-Gk-m3M" customClass="AccountViewController" customModule="CookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y5F-sb-FXM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -468,6 +468,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person" catalog="system" selectedImage="person.fill" id="Wj4-or-cJ9"/>
+                    <connections>
+                        <outlet property="greetingLabel" destination="3Ml-pk-MIE" id="DXj-gz-URK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meM-h7-YKM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
