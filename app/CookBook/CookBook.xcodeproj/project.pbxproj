@@ -24,6 +24,7 @@
 		099A28A426490A7600ABA55B /* DetailRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099A28A326490A7500ABA55B /* DetailRecipeViewController.swift */; };
 		09BEE7FE2637709E002E4CF3 /* testImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEE7FD2637709E002E4CF3 /* testImageFile.swift */; };
 		09BEE80326377165002E4CF3 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEE80226377165002E4CF3 /* CardCell.swift */; };
+		09DF1237264A5D62006A7F68 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF1236264A5D62006A7F68 /* AccountViewController.swift */; };
 		2D1822DB264710E9004F6FC0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1822DA264710E8004F6FC0 /* UserModel.swift */; };
 		2D1822DD26471394004F6FC0 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1822DC26471394004F6FC0 /* UserItem.swift */; };
 		2D5865CD264519D100B5C5ED /* mealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5865CC264519D100B5C5ED /* mealModel.swift */; };
@@ -74,6 +75,7 @@
 		099A28A326490A7500ABA55B /* DetailRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeViewController.swift; sourceTree = "<group>"; };
 		09BEE7FD2637709E002E4CF3 /* testImageFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testImageFile.swift; sourceTree = "<group>"; };
 		09BEE80226377165002E4CF3 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		09DF1236264A5D62006A7F68 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		0A7319763783CA049B5A56E0 /* Pods-CookBook-CookBookUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookBook-CookBookUITests.debug.xcconfig"; path = "Target Support Files/Pods-CookBook-CookBookUITests/Pods-CookBook-CookBookUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B472D4CDC8771FB4B4A8178 /* Pods-CookBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookBookTests.release.xcconfig"; path = "Target Support Files/Pods-CookBookTests/Pods-CookBookTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D1822DA264710E8004F6FC0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				092D40FE263A05A000D7230F /* AddRecipeViewController.swift */,
 				09BEE7FD2637709E002E4CF3 /* testImageFile.swift */,
 				099A28A326490A7500ABA55B /* DetailRecipeViewController.swift */,
+				09DF1236264A5D62006A7F68 /* AccountViewController.swift */,
 			);
 			path = CookBook;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				0265F0BC263E850900E7107D /* User+CoreDataClass.swift in Sources */,
 				0927D9CE2630906B0055246C /* LoginViewController.swift in Sources */,
 				0927D9CA2630906B0055246C /* AppDelegate.swift in Sources */,
+				09DF1237264A5D62006A7F68 /* AccountViewController.swift in Sources */,
 				2D1822DD26471394004F6FC0 /* UserItem.swift in Sources */,
 				2D1822DB264710E9004F6FC0 /* UserModel.swift in Sources */,
 				099A28A426490A7600ABA55B /* DetailRecipeViewController.swift in Sources */,
