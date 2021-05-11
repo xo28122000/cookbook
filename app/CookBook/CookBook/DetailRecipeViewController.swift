@@ -32,6 +32,19 @@ class DetailRecipeViewController: UIViewController {
         directionsTextView.text = selectedMealObj.directions
         categoryLabel.text = "Category: " + selectedMealObj.category
         prepTimeLabel.text = "⏲️: " + selectedMealObj.prepTime
+        let url: URL? = URL(string: selectedMealObj.imageData)
+        
+        guard
+            let defualtUIImg = UIImage(named: "icon1"),
+            let defaultImg = defualtUIImg.jpegData(compressionQuality: 1)
+        else {return}
+        
+        if let url: URL = url {
+            let data = try? Data(contentsOf: url)
+            mealImageView.image = UIImage(data: data ?? defaultImg)
+        } else {
+            mealImageView.image = UIImage(data: defaultImg)
+        }
 //        mealImageView.image = get data from url // copy from cellCiew
     }
     
