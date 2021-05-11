@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  CookBook
 //
-//  Created by J on 4/21/21.
+//  Created by Jainam, Himanshu, Ramy on 4/21/21.
 //
 
 import UIKit
@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
         }
         
         self.continueAsExistingUserButton.setTitle("Continue As " + lastUser.name, for: .normal)
-        print("Continue As " + lastUser.name)
+//        print("Continue As " + lastUser.name)
     }
 
 

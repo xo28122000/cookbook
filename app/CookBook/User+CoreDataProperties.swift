@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  
 //
-//  Created by JPL-ST-Spring2020 on 5/1/21.
+//  Created by Jainam, Himanshu, Ramy on 5/1/21.
 //
 //
 

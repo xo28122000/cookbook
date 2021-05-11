@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  CookBook
 //
-//  Created by J on 4/21/21.
+//  Created by Jainam, Himanshu, Ramy on 4/21/21.
 //
 
 import UIKit

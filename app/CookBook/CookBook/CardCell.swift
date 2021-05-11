@@ -2,7 +2,7 @@
 //  CardCell.swift
 //  CookBook
 //
-//  Created by J on 4/26/21.
+//  Created by Jainam, Himanshu, Ramy on 4/26/21.
 //
 
 import UIKit

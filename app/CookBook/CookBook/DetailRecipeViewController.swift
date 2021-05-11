@@ -2,7 +2,7 @@
 //  DetailRecipeViewController.swift
 //  CookBook
 //
-//  Created by J on 5/10/21.
+//  Created by Jainam, Himanshu, Ramy on 5/10/21.
 //
 
 import UIKit
