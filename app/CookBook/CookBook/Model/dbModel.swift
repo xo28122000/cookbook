@@ -2,7 +2,7 @@
 //  dbModel.swift
 //  firbaseSwiftProj
 //
-//  Created by Ramy Fekry on 4/16/21.
+//  Created by Jainam, Himanshu, Ramy on 4/16/21.
 //
 
 import Foundation
