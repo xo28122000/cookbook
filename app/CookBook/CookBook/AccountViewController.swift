@@ -10,9 +10,25 @@ import UIKit
 class AccountViewController: UIViewController {
 
     @IBOutlet weak var greetingLabel: UILabel!
+    
+    var users:[UserItem] = []
+    let userModel: UserModel = UserModel()
+    
+    func updateGreeting(){
+        self.users = userModel.getAllUsers()
+        
+        guard let lastUser: UserItem = users.last else {
+            return
+        }
+        
+        self.greetingLabel.text = "Hello " + lastUser.name
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // update greeting
+        updateGreeting()
     }
     
 
