@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var continueAsNewUserButton: UIButton!
     let userModel: UserModel = UserModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         userModel.getAllUsers()
