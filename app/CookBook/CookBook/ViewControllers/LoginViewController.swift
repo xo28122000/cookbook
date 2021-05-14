@@ -14,8 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var continueAsNewUserButton: UIButton!
     var users:[UserItem] = []
     let userModel: UserModel = UserModel()
-    
-    //continueAsNewUserButton.setTitle("Continue As " + "xxxx", for: .normal)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,8 +42,6 @@ class LoginViewController: UIViewController {
 
 
     @IBAction func addUser(_ sender: Any) {
-        
-//        let newUser = User(context: self.context)
         
         guard
             let name: String = enterNameTextField.text,

@@ -155,10 +155,9 @@
 		0927D9C82630906A0055246C /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
+				2D5706CD264E0617006A62FF /* ViewControllers */,
 				0265F0B8263E84EE00E7107D /* Model */,
 				09BEE80226377165002E4CF3 /* CardCell.swift */,
-				0927D9CD2630906B0055246C /* LoginViewController.swift */,
-				0927DA0226309E280055246C /* HomeViewController.swift */,
 				0927D9CF2630906B0055246C /* Main.storyboard */,
 				0927D9D5263090710055246C /* Assets.xcassets */,
 				0927D9D7263090710055246C /* LaunchScreen.storyboard */,
@@ -167,9 +166,6 @@
 				0927D9D22630906B0055246C /* CookBook.xcdatamodeld */,
 				0927D9C92630906A0055246C /* AppDelegate.swift */,
 				0927D9CB2630906B0055246C /* SceneDelegate.swift */,
-				092D40FE263A05A000D7230F /* AddRecipeViewController.swift */,
-				099A28A326490A7500ABA55B /* DetailRecipeViewController.swift */,
-				09DF1236264A5D62006A7F68 /* AccountViewController.swift */,
 			);
 			path = CookBook;
 			sourceTree = "<group>";
@@ -190,6 +186,18 @@
 				0927D9F0263090720055246C /* Info.plist */,
 			);
 			path = CookBookUITests;
+			sourceTree = "<group>";
+		};
+		2D5706CD264E0617006A62FF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0927D9CD2630906B0055246C /* LoginViewController.swift */,
+				0927DA0226309E280055246C /* HomeViewController.swift */,
+				092D40FE263A05A000D7230F /* AddRecipeViewController.swift */,
+				099A28A326490A7500ABA55B /* DetailRecipeViewController.swift */,
+				09DF1236264A5D62006A7F68 /* AccountViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		5CC318EE6824FC2BCD4F48B5 /* Pods */ = {
