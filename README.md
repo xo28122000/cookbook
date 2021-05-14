@@ -4,7 +4,7 @@ cookbook - a recipe sharing app
 
 Collaborators:
  - Ramy Fekry: ramy1951
- - Himanshu Garg: HimanshuGarg701
+ - Himanshu Garg: HimanshuGarg701 (JPL-ST-Spring2020 commits made by this name (library laptop))
  - Jainam Shah: xo28122000
 
 # Proposal:
