@@ -83,16 +83,25 @@ class dbModel {
     
     func getMeals() -> Void{
         self.meals = []
-        ref.child("meals").observe(.value){ [self]snapshot in
-            for child in snapshot.children{
-                let mealObj = child as! DataSnapshot
-                let mealDictionary = mealObj.value as! [String: String]
-                
-                let newMeal = meal(name: (mealDictionary["name"])!, description: (mealDictionary["description"])!, imageData: (mealDictionary["image"]) ?? "", ingredients: (mealDictionary["ingredients"]) ?? "", directions: (mealDictionary["directions"]) ?? "", category: (mealDictionary["category"]) ?? "", prepTime: (mealDictionary["prepTime"]) ?? "")
-                self.meals.append(newMeal)
+//        DispatchQueue.global().async {
+//            print("_____----------- start")
+            self.ref.child("meals").observe(.value){ [self]snapshot in
+                for child in snapshot.children{
+                    let mealObj = child as! DataSnapshot
+                    let mealDictionary = mealObj.value as! [String: String]
+                    
+                    let newMeal = meal(name: (mealDictionary["name"])!, description: (mealDictionary["description"])!, imageData: (mealDictionary["image"]) ?? "", ingredients: (mealDictionary["ingredients"]) ?? "", directions: (mealDictionary["directions"]) ?? "", category: (mealDictionary["category"]) ?? "", prepTime: (mealDictionary["prepTime"]) ?? "")
+                    self.meals.append(newMeal)
+                }
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mealArray"), object: nil)
             }
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mealArray"), object: nil)
-        }
+//            print("_____----------- end")
+//
+//            DispatchQueue.main.async {
+//                print("_____-----------  main queue")
+//            }
+//        }
+     
     }
 
 }
