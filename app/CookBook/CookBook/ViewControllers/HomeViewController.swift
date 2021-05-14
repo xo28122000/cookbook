@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var cardTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mealsFetched.count;
+        return self.model.meals.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,21 +32,37 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         else{
             return UITableViewCell()
         };
+        guard
+            let defualtUIImg = UIImage(named: "icon1"),
+            let defaultImg = defualtUIImg.jpegData(compressionQuality: 1)
+        else {
+            cell.configure(
+                name: self.model.meals[indexPath.row].name,
+                description: self.model.meals[indexPath.row].description,
+                imgData: nil)
+            return cell
+        }
+        
+        var imgToBeSet: UIImage? = UIImage(data: defaultImg)
+        do {
+            if let url: URL = URL(string: self.model.meals[indexPath.row].imageData) {
+                let data = try Data(contentsOf: url)
+                imgToBeSet = UIImage(data: data)
+            }
+        } catch {}
+        
         cell.configure(
-            name: mealsFetched[indexPath.row].name,
-            description: mealsFetched[indexPath.row].description,
-            imgData: mealsFetched[indexPath.row].imageData)
+            name: self.model.meals[indexPath.row].name,
+            description: self.model.meals[indexPath.row].description,
+            imgData: imgToBeSet)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.model.setSelectedMeal(meal: mealsFetched[indexPath.row])
-        self.model.selectedMeal = mealsFetched[indexPath.row]
+//        self.model.setSelectedMeal(meal: self.model.meals[indexPath.row])
+        self.model.selectedMeal = self.model.meals[indexPath.row]
         performSegue(withIdentifier: "recipeSelected", sender: nil)
-        
     }
-    
-//    func tableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +73,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     @objc func updateMeals(_ notification: NSNotification){
-        mealsFetched = model.meals
+//        mealsFetched = model.meals
         self.cardTableView.reloadData()
     }
 

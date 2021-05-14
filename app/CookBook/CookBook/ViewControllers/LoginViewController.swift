@@ -12,37 +12,32 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var continueAsExistingUserButton: UIButton!
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var continueAsNewUserButton: UIButton!
-    var users:[UserItem] = []
     let userModel: UserModel = UserModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getUser()
-        
-        if(self.users.count > 0){
+        userModel.getAllUsers()
+        updateLoginOptions()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateUser(_:)), name: NSNotification.Name(rawValue: "usersUpdated"), object: nil)
+    }
+    @objc func updateUser(_ notification: NSNotification){
+        updateLoginOptions()
+    }
+    
+    func updateLoginOptions(){
+        if let currUser = self.userModel.currentUser {
             continueAsNewUserButton.isHidden = true
             enterNameTextField.isHidden = true
+            continueAsExistingUserButton.isHidden = false;
+            self.continueAsExistingUserButton.setTitle("Continue As " + currUser.name, for: .normal)
         }else{
+            continueAsNewUserButton.isHidden = false
+            enterNameTextField.isHidden = false
             continueAsExistingUserButton.isHidden = true;
         }
     }
-    
-    //Function to fetch the user from core data
-    func getUser(){
-        self.users = userModel.getAllUsers()
-        
-        guard let lastUser: UserItem = users.last else {
-            print("users.last is seems to having trouble.")
-            return
-        }
-        
-        self.continueAsExistingUserButton.setTitle("Continue As " + lastUser.name, for: .normal)
-    }
-
 
     @IBAction func addUser(_ sender: Any) {
-        
         guard
             let name: String = enterNameTextField.text,
             name != ""
@@ -54,12 +49,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        let uid = UUID().uuidString
-        
-        let newUser = UserItem(name: name, uid: uid)
-        
-        userModel.storeNewUser(user: newUser)
-        self.users.append(newUser)
+        userModel.storeNewUser(name: name)
     }
 }
 
