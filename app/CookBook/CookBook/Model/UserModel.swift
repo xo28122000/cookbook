@@ -28,7 +28,7 @@ class UserModel {
        
     }
     
-    func getAllUsers() -> [UserItem]{
+    func getAllUsers(){
         //context for reading
         let context = container.viewContext
         
@@ -46,12 +46,10 @@ class UserModel {
                 currentUser = lastUser
             }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "usersUpdated"), object: nil)
-            return userItems
         } catch {
             print(error)
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "usersUpdated"), object: nil)
-        return []
     }
     
     func storeNewUser(name: String){

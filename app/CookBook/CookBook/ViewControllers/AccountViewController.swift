@@ -15,31 +15,22 @@ class AccountViewController: UIViewController {
     let userModel: UserModel = UserModel()
     
     func updateGreeting(){
-        self.users = userModel.getAllUsers()
-        
-        guard let lastUser: UserItem = users.last else {
-            return
+        if let currUser = self.userModel.currentUser {
+            self.greetingLabel.text = "Hello " + currUser.name
+        }else{
         }
-        
-        self.greetingLabel.text = "Hello " + lastUser.name
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // update greeting
+        userModel.getAllUsers()
+        updateGreeting()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateUser(_:)), name: NSNotification.Name(rawValue: "usersUpdated"), object: nil)
+    }
+    @objc func updateUser(_ notification: NSNotification){
         updateGreeting()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
