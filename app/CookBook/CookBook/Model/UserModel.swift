@@ -11,6 +11,8 @@ import CoreData
 
 class UserModel {
     // Lazy loading the swift way:
+    var currentUser: UserItem?
+    
     lazy var container: NSPersistentContainer = {
         var container =  NSPersistentContainer(name: "CookBook")
         container.loadPersistentStores { (_, error: Error?) in
@@ -40,15 +42,20 @@ class UserModel {
             let userItems: [UserItem] = results.compactMap { managedObject in
                 return UserItem(managedObject: managedObject)
             }
-            
+            if let lastUser: UserItem = userItems.last {
+                currentUser = lastUser
+            }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "usersUpdated"), object: nil)
             return userItems
         } catch {
             print(error)
         }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "usersUpdated"), object: nil)
         return []
     }
     
-    func storeNewUser(user: UserItem){
+    func storeNewUser(name: String){
+        let user: UserItem = UserItem(name: name, uid: UUID().uuidString)
         let context = container.newBackgroundContext()
         guard let entity = NSEntityDescription.entity(forEntityName: "User", in: context) else {
             return
@@ -64,5 +71,8 @@ class UserModel {
         }catch{
             
         }
+        currentUser = user
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "usersUpdated"), object: nil)
+
     }
 }

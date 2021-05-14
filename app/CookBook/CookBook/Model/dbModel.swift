@@ -16,6 +16,7 @@ class dbModel {
 
     var imageUrl: String?
     var selectedMeal: meal?
+    
     static var globalModel: dbModel?
     
     init() {

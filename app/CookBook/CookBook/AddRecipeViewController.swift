@@ -72,7 +72,6 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             return
         }
         let category = self.selectedCategory
-        let mealImageString = mealImagePngData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
         if(mealName.isEmpty || mealDes.isEmpty || ingredients.isEmpty || directions.isEmpty || prepTime.isEmpty || category.isEmpty){
             let alert = UIAlertController(title: "Fill all required fields", message: "Please enter all fields in this form", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
@@ -90,7 +89,6 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             category: category,
             prepTime: prepTime
         )
-//        print(newMeal)
         dbmodel.uploadImage(image: mealImage)
         
     }
@@ -98,10 +96,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func selectImageButtonClick(_ sender: Any) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
-        
-               
         present(imagePicker, animated: true, completion: nil)
-
     }
     
     @objc func updateImageUrl(_ notification: NSNotification){

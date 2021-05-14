@@ -32,10 +32,29 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         else{
             return UITableViewCell()
         };
+        guard
+            let defualtUIImg = UIImage(named: "icon1"),
+            let defaultImg = defualtUIImg.jpegData(compressionQuality: 1)
+        else {
+            cell.configure(
+                name: mealsFetched[indexPath.row].name,
+                description: mealsFetched[indexPath.row].description,
+                imgData: nil)
+            return cell
+        }
+        
+        var imgToBeSet: UIImage? = UIImage(data: defaultImg)
+        do {
+            if let url: URL = URL(string: mealsFetched[indexPath.row].imageData) {
+                let data = try Data(contentsOf: url)
+                imgToBeSet = UIImage(data: data)
+            }
+        } catch {}
+        
         cell.configure(
             name: mealsFetched[indexPath.row].name,
             description: mealsFetched[indexPath.row].description,
-            imgData: mealsFetched[indexPath.row].imageData)
+            imgData: imgToBeSet)
         return cell
     }
     
@@ -43,10 +62,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.model.setSelectedMeal(meal: mealsFetched[indexPath.row])
         self.model.selectedMeal = mealsFetched[indexPath.row]
         performSegue(withIdentifier: "recipeSelected", sender: nil)
-        
     }
-    
-//    func tableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
